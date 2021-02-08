@@ -26,5 +26,5 @@ jobs:
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
                   commit_message: "Update commit."
-                  branch: branch
+                  branch: auto-updates
                   commit_user_name: "Platform.sh template updater"
