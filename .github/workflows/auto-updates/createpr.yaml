@@ -1,0 +1,6 @@
+---
+name: Create updates PR
+
+on:
+    branches:
+        - auto-updates

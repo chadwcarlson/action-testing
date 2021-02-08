@@ -9,7 +9,7 @@ on:
       types:
           - completed
       branches:
-          - auto-update
+          - auto-updates
 
 jobs:
   automerge:
