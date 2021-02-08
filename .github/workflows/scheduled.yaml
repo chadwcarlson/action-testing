@@ -2,7 +2,7 @@
 name: Automatic updates
 on:
     schedule:
-      crons: "0 */1 * * *"
+      - cron: "0 */1 * * *"
 
 jobs:
     test:
