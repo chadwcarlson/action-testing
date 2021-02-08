@@ -19,7 +19,7 @@ jobs:
               run: cat test.yaml
             - name: Update entries
               id: updateData
-              run: node test.js
+              run: node update.js
             - name: Verify update
               run: cat test.yaml
             - name: Commit changes
