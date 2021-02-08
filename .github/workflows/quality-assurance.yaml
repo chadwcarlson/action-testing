@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Test the change
-              runs: echo "Something"
+              run: echo "Something"
 
   # automerge:
   #   if: github.event.review.state == 'approved' || !github.event.review
