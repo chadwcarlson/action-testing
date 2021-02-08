@@ -1,2 +1,4 @@
 name: Test commit file
-data: []
+data:
+  - '2021-02-08'
+  - '2021-02-08'

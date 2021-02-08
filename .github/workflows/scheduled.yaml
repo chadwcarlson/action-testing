@@ -21,19 +21,12 @@ jobs:
               run: cat test.yaml
             - name: Update entries
               id: updateData
-              run: echo ::set-output name=date::${node test.js}
-            - name: Create commit message
-              env:
-                  DATE: ${{ steps.updateData.outputs.date }}
-              id: commitMsg
-              run: echo ::set-output name=msg::$(echo "($DATE) Update commit.")
+              run: echo ::set-output name=commitMsg::${node test.js}
             - name: Verify update
               run: cat test.yaml
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
-              env:
-                  MSG: ${{ steps.commitMsg.outputs.msg }}
               with:
-                  commit_message: ${{ steps.commitMsg.outputs.msg }}
+                  commit_message: ${{ steps.updateData.outputs.commitMsg }}
                   branch: branch
                   commit_user_name: "Platform.sh template updater"

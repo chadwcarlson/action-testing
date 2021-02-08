@@ -11,7 +11,8 @@ try {
     fs.writeFile('test.yaml', yamlStr, (error) => { 
               if (error) throw err; 
     }) 
-    console.log(newDate)
+    let commitMessage = `(${newDate}) Update commit.`
+    console.log(commitMessage)
 } catch (e) {
     console.log(e);
 }
