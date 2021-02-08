@@ -1,0 +1,19 @@
+---
+name: Automatic updates
+on:
+    schedule:
+      - crons: "0 */1 * * *"
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: '14.x'
+            - name: Update text file
+              run: npm install
+            - run: cat test.yaml
+            - run: node test.js
+            - run: cat test.yaml
