@@ -1,0 +1,12 @@
+---
+name: Repo tests
+
+on:
+    pull_request: ~
+
+jobs:
+    test: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Test the change
+              run: echo "Something"

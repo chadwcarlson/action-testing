@@ -8,7 +8,7 @@ try {
     let newDate = moment().format('yyyy-MM-DD - mm:ss');
     doc.data.push(newDate);
     let yamlStr = yaml.dump(doc);
-    fs.writeFile('test.yaml', yamlStr, (error) => { 
+    fs.writeFile('data.yaml', yamlStr, (error) => { 
               if (error) throw err; 
     }) 
 } catch (e) {
