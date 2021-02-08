@@ -22,7 +22,7 @@ jobs:
             - name: Update entries
               run: node test.js
             - name: Verify update
-            - run: cat test.yaml
+              run: cat test.yaml
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
