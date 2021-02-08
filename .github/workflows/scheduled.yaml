@@ -1,11 +1,11 @@
 ---
 name: Automatic updates
 on:
-    push: 
-      branches:
-          - branch
     # schedule:
-    #   - cron: "0 */1 * * *"
+    #   - cron: "*/15 * * * *"
+    push:
+        branches:
+            - branch
 
 jobs:
     test:
@@ -20,12 +20,20 @@ jobs:
             - name: View entries
               run: cat test.yaml
             - name: Update entries
-              run: node test.js
+              id: updateData
+              run: echo ::set-output name=date::${node test.js}
+            - name: Create commit message
+              env:
+                  DATE: ${{ steps.updateData.outputs.date }}
+              id: commitMsg
+              run: echo ::set-output name=msg::$(echo "($DATE) Update commit.")
             - name: Verify update
               run: cat test.yaml
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
+              env:
+                  MSG: ${{ steps.commitMsg.outputs.msg }}
               with:
-                  commit_message: "Test auto commit."
+                  commit_message: ${{ steps.commitMsg.outputs.msg }}
                   branch: branch
                   commit_user_name: "Platform.sh template updater"
