@@ -1,8 +1,11 @@
 ---
 name: Automatic updates
 on:
-    schedule:
-      - cron: "*/20 * * * *"
+    create:
+        branches:
+            - auto-updates
+    # schedule:
+    #   - cron: "*/20 * * * *"
     # push:
     #     branches:
     #         - branch
@@ -27,6 +30,6 @@ jobs:
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: "Update commits."
+                  commit_message: "Update commit."
                   branch: branch
                   commit_user_name: "Platform.sh template updater"

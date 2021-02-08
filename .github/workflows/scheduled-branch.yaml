@@ -1,0 +1,16 @@
+---
+name: Create branch for updates
+
+on:
+    schedule:
+      - cron: "*/20 * * * *"
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: peterjgrainger/action-create-branch@v2.0.1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GHTOKEN }}
+              with:
+                  branch: 'auto-updates'
