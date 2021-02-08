@@ -1,12 +1,12 @@
 ---
-name: Commit updates
+name: Auto-commit updates
 on:
     create:
         branches:
             - auto-updates
 
 jobs:
-    test:
+    update:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
