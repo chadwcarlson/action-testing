@@ -1,11 +1,11 @@
 ---
 name: Automatic updates
 on:
-    # schedule:
-    #   - cron: "*/15 * * * *"
-    push:
-        branches:
-            - branch
+    schedule:
+      - cron: "*/20 * * * *"
+    # push:
+    #     branches:
+    #         - branch
 
 jobs:
     test:
