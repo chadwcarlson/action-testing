@@ -1,9 +1,9 @@
 ---
-name: Create branch for updates
+name: Scheduled update branch
 
 on:
     schedule:
-      - cron: "*/20 * * * *"
+      - cron: "*/15 * * * *"
 
 jobs:
     test:
