@@ -1,0 +1,30 @@
+---
+name: Commit updates
+on:
+    create:
+        branches:
+            - auto-updates
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: '14.x'
+            - name: Install dependencies
+              run: npm install
+            - name: View entries
+              run: cat test.yaml
+            - name: Update entries
+              id: updateData
+              run: node test.js
+            - name: Verify update
+              run: cat test.yaml
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: "Update commit."
+                  branch: branch
+                  commit_user_name: "Platform.sh template updater"
