@@ -1,4 +1,3 @@
-
 'use strict';
 
 const fs   = require('fs');
@@ -6,14 +5,6 @@ const axios = require("axios");
 const yaml = require('js-yaml');
 const assert = require('assert').strict;
 
-// async function getData() {
-// 	const response = await axios ({
-// 	url: masterDataUrl,
-// 	method: "GET"
-// })
-
-// console.log(response.data)
-// }
 
 const sleep = ms => {
     return new Promise(resolve => setTimeout(resolve, ms))
