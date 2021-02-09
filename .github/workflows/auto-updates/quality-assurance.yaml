@@ -1,8 +1,12 @@
 ---
 name: Quality Assurance
 on:
-    push: ~
-    pull_request: ~
+    push: 
+        branches:
+            - auto-updates
+    pull_request: 
+        branches:
+            - auto-updates
 
 jobs:
     build:
@@ -18,4 +22,3 @@ jobs:
                   node-version: ${{ matrix.nodejs }}
             - run: npm install
             - run: npm test
-            
