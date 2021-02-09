@@ -9,7 +9,7 @@ on:
       types:
           - completed
       branches:
-          - auto-updates
+          - ${{ secrets.UPDATE_BRANCH }}
 
 jobs:
   automerge:

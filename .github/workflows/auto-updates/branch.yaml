@@ -14,4 +14,4 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GHTOKEN }}
               with:
-                  branch: 'auto-updates'
+                  branch: ${{ secrets.UPDATE_BRANCH }}

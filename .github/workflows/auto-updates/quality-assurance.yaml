@@ -3,10 +3,10 @@ name: Quality Assurance
 on:
     push: 
         branches:
-            - auto-updates
+            - ${{ secrets.UPDATE_BRANCH }}
     pull_request: 
         branches:
-            - auto-updates
+            - ${{ secrets.UPDATE_BRANCH }}
 
 jobs:
     build:
