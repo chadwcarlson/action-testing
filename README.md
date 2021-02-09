@@ -24,6 +24,6 @@
 * [GH Action Docs](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#create)
 * [Creating branches: `action-create-branch`](https://github.com/peterjgrainger/action-create-branch)
 * [Creating commits from action artifacts: `git-auto-commit`](https://github.com/marketplace/actions/git-auto-commit)
-* [Create PRs from branches: `create-pull-request`](https://github.com/marketplace/actions/create-pull-request)
+* [Create PRs from branches: `create-pull-request`](magento/magento2-sample-data)
 * [Test and auto merge: `auto-merge-pull-request`](https://github.com/marketplace/actions/auto-merge-pull-request)
 

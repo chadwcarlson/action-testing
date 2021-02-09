@@ -1,12 +1,21 @@
 ---
-name: Repo tests
-
+name: Quality Assurance
 on:
+    push: ~
     pull_request: ~
 
 jobs:
-    test: 
+    build:
+        name: '[Build/test] Node.js ${{ matrix.nodejs }}'
         runs-on: ubuntu-latest
-        steps:
-            - name: Test the change
-              run: echo "Something"
+        strategy:
+            matrix:
+                nodejs: [ '10', '12', '14' ]
+        steps: 
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.nodejs }}
+            - run: npm install
+            - run: npm test
+            

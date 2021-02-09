@@ -3,7 +3,8 @@ name: Scheduled update branch
 
 on:
     schedule:
-      - cron: "0 1 * * *"
+      - cron: "/15 * * * *"
+    #   - cron: "0 1 * * *"
 
 jobs:
     branch:

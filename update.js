@@ -1,15 +1,18 @@
-const yaml = require('js-yaml');
 const fs   = require('fs');
 var moment = require('moment');
+const yaml = require('js-yaml');
 
-// Get document, or throw exception on error
+const dataFile = "data.yaml";
+
 try {
-    let doc = yaml.load(fs.readFileSync('test.yaml', 'utf8'));
+    // Load and update data.
+    let doc = yaml.load(fs.readFileSync(dataFile, 'utf8'));
     let newDate = moment().format('yyyy-MM-DD - mm:ss');
     doc.data.push(newDate);
+    // Re-write the data file.
     let yamlStr = yaml.dump(doc);
-    fs.writeFile('data.yaml', yamlStr, (error) => { 
-              if (error) throw err; 
+    fs.writeFile(dataFile, yamlStr, (error) => { 
+        if (error) throw err; 
     }) 
 } catch (e) {
     console.log(e);
