@@ -1,9 +1,13 @@
 ---
 name: Auto-commit updates
 on:
-    create:
-        branches:
-            - auto-updates
+  workflow_run:
+      workflows:
+          - Scheduled update branch
+      types:
+          - completed
+      branches:
+          - auto-updates
 
 jobs:
     update:
