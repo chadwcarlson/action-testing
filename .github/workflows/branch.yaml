@@ -2,8 +2,9 @@
 name: Scheduled update branch
 
 on:
-    schedule:
-      - cron: "/15 * * * *"
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/15 * * * *'
     #   - cron: "0 1 * * *"
 
 jobs:
