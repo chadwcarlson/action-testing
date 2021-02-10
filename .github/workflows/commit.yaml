@@ -3,7 +3,7 @@ name: Auto-commit updates
 on:
     create:
         branches:
-            - ${{ secrets.UPDATE_BRANCH }}
+            - auto-updates
 
 jobs:
     update:
