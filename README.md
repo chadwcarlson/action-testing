@@ -2,10 +2,23 @@
 
 ## TODO
 
+Inital:
+
 - a better test that doesn't depend on an update occuring
 - handling for when there are no updates
 - re-add `working/branch.yaml` cron
 - setup auto-merging, requires config change and auto approval.
+
+Then:
+
+- tagging/releasing auto-updates
+
+Test on & compare with S.O.s:
+
+- video index
+- search indices
+- template updates
+
 
 ## Summary
 
