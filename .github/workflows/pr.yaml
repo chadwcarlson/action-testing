@@ -5,9 +5,9 @@ name: create-pull-request workflow
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/auto-updates'
     steps:
-      - if: github.ref == 'refs/heads/auto-updates'
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
