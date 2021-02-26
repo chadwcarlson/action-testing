@@ -37,7 +37,6 @@ jobs:
                 token: ${{ secrets.GHTOKEN }}
                 branch: 'auto-updates'
                 base: master
-                delete-branch: false
                 title: '[Auto] Data update'
                 body: |
                     Update report
