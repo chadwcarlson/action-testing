@@ -24,3 +24,9 @@ jobs:
             run: node update.js
           - name: Verify update
             run: npm test
+          - name: Commit changes
+            uses: stefanzweifel/git-auto-commit-action@v4
+            with:
+                commit_message: "Data auto-update."
+                branch: 'auto-updates'
+                commit_user_name: "Platform.sh autoupdater"
