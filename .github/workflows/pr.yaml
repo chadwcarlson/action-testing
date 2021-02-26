@@ -6,7 +6,6 @@ jobs:
   createPullRequest:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/auto-updates'
-    needs: changedfiles
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
