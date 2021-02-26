@@ -38,9 +38,7 @@ jobs:
       - needs: changedfiles
         # only run there are changed files
         if: ${{needs.changedfiles.outputs.ts}}
-        steps:
-          - name: echo changed files
-            run: echo ${{needs.changedfiles.outputs.ts}}
+        run: echo ${{needs.changedfiles.outputs.ts}}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
