@@ -8,11 +8,22 @@ jobs:
     steps:
       - if: github.ref == 'refs/heads/auto-updates'
         uses: actions/checkout@v2
-      - name: Create report file
-        run: date +%s > report.txt
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+            node-version: '14.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Update entries
+        id: updateData
+        run: node update.js
+      - name: Verify update
+        run: npm test
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
+          branch: auto-updates
+          base: master
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Add report file
           title: '[Example] Add report file'
