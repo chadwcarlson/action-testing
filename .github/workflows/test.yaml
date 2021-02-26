@@ -1,0 +1,13 @@
+---
+name: Commit to auto-updates
+
+on:
+    create
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps: 
+          - name: Get branch
+            if: github.ref == 'refs/heads/auto-updates'
+            run: echo "Event on $GITHUB_REF"
