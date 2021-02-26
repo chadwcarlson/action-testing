@@ -35,9 +35,7 @@ jobs:
         run: node update.js
       - name: Verify update
         run: npm test
-      - needs: changedfiles
-        # only run there are changed files
-        if: ${{needs.changedfiles.outputs.ts}}
+      - if: ${{needs.changedfiles.outputs.ts}}
         run: echo ${{needs.changedfiles.outputs.ts}}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
