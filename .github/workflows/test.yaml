@@ -35,6 +35,7 @@ jobs:
             uses: peter-evans/create-pull-request@v3
             with:
                 token: ${{ secrets.GHTOKEN }}
+                branch: 'auto-updates'
                 title: '[Auto] Data update'
                 body: |
                     Update report
