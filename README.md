@@ -32,3 +32,5 @@ useCases:
     videos: "Listing all YouTube videos on Marketing site, getting around the YT query cap by doing once per day."
     templates: "Create a daily index for internal + external templates that can be displayed via Hugo in docs and on Marketing site. Collab with A. Hobday to make sure we get all of the data we need here."
     search: "Doc's builds are long, specifically because it's scraping all other sites. Put into something like this, run once a day, curl on builds"
+
+    
