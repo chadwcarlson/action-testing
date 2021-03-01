@@ -5,7 +5,7 @@ name: create-pull-request workflow
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/auto-updates'
+    # if: github.ref == 'refs/heads/auto-updates'
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
@@ -23,6 +23,9 @@ jobs:
         id: changes
         run: |
             echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+      - name: Test output
+        run: |
+            echo "${{ steps.changes.outputs.all }}"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:

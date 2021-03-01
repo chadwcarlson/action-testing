@@ -5,7 +5,9 @@
 Inital:
 
 - a better test that doesn't depend on an update occuring
-- handling for when there are no updates
+- Make everything depend on passing tests
+- Make test multi-env (https://github.com/platformsh/config-reader-nodejs/blob/master/.github/workflows/quality-assurance.yaml)
+- handling for when there are no updates (randomly no updates)
 - re-add `working/branch.yaml` cron
 - setup auto-merging, requires config change and auto approval.
 
