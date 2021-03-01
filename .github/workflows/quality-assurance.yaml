@@ -1,12 +1,11 @@
 ---
 name: Quality Assurance
 on:
-    push: ~
     pull_request: ~
 
 jobs:
     build:
-        name: '[Build/test] Node.js ${{ matrix.nodejs }}'
+        name: 'Node.js ${{ matrix.nodejs }}'
         runs-on: ubuntu-latest
         strategy:
             matrix:
