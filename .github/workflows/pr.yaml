@@ -23,7 +23,7 @@ jobs:
       - name: Get changed files
         id: changes
         run: |
-            export CHANGES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+            export CHANGES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
             echo "::set-output name=all::$CHANGES"
             echo "::set-output name=len::$(#CHANGES)"
       - name: Create Pull Request
