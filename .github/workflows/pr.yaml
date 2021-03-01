@@ -26,6 +26,7 @@ jobs:
       - name: Test output
         run: |
             echo "${{ steps.changes.outputs.all }}"
+            echo ${#steps.changes.outputs.all}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
