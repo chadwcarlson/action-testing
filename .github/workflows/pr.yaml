@@ -1,5 +1,6 @@
 on:
-    create 
+    push
+    # create 
 
 name: create-pull-request workflow
 jobs:
