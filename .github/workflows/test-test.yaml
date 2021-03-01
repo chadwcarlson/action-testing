@@ -1,0 +1,26 @@
+---
+name: Tests triggered by auto-PR
+
+on:
+  workflow_run:
+      workflows:
+          - create-pull-request
+      types:
+          - completed
+      branches:
+          - auto-updates
+
+jobs:
+    build:
+        name: 'Node.js ${{ matrix.nodejs }}'
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                nodejs: [ '10', '12', '14' ]
+        steps: 
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.nodejs }}
+            - run: npm install
+            - run: npm test
