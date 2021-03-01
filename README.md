@@ -22,6 +22,7 @@ Inital:
     - data: test + auto
     - deps: test + auto
     - triggered core: test + notify
+- [ ] tagging/releases
 
 Then:
 

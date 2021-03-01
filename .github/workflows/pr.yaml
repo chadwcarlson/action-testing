@@ -1,12 +1,11 @@
 on:
-    push
-    # create 
+    create
 
 name: create-pull-request workflow
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
-    # if: github.ref == 'refs/heads/auto-updates'
+    if: github.ref == 'refs/heads/auto-updates'
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
@@ -18,8 +17,6 @@ jobs:
       - name: Update entries
         id: updateData
         run: node update.js
-      - name: Test
-        run: npm test
       - name: Get changed files
         id: changes
         run: |
