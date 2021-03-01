@@ -1,5 +1,12 @@
 # Auto update action testing
 
+      - name: Get changed files
+        id: changes
+        run: |
+            export CHANGES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
+            echo "::set-output name=all::$CHANGES"
+            echo "::set-output name=len::$(#CHANGES)"
+
 ## TODO
 
 Inital:
@@ -7,7 +14,7 @@ Inital:
 - a better test that doesn't depend on an update occuring
 - Make everything depend on passing tests
 - Make test multi-env (https://github.com/platformsh/config-reader-nodejs/blob/master/.github/workflows/quality-assurance.yaml)
-- handling for when there are no updates (randomly no updates)
+- handling for when there are no updates (randomly no updates) - ONLY UPDATE ON ODD DAYS
 - re-add `working/branch.yaml` cron
 - setup auto-merging, requires config change and auto approval.
 
