@@ -24,7 +24,6 @@ jobs:
         id: changes
         run: |
             export CHANGES="$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-            export CHANGES_LEN="${#CHANGES}"
             echo "::set-output name=all::$CHANGES"
             echo "::set-output name=len::${#CHANGES}"
       - name: Test output
@@ -34,6 +33,7 @@ jobs:
             echo $TEST_VAR
             echo $TEST_VARB
       - name: Create Pull Request
+        if: ${{ steps.changes.outputs.len }} > 0
         uses: peter-evans/create-pull-request@v3
         with:
           branch: ${{ secrets.UPDATE_BRANCH }}
