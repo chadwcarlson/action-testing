@@ -7,13 +7,12 @@ on:
           - create-pull-request
       types:
           - completed
-      branches:
-          - auto-updates
 
 jobs:
     build:
         name: 'Node.js ${{ matrix.nodejs }}'
         runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/auto-updates'
         strategy:
             matrix:
                 nodejs: [ '10', '12', '14' ]
