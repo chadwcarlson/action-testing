@@ -26,6 +26,7 @@ jobs:
             export CHANGES="$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
             export CHANGES_LEN="${#CHANGES}"
             echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+            echo "::set-output name=len::${#CHANGES}"
       - name: Test output
         run: |
             export TEST_VAR="${{ steps.changes.outputs.all }}"
