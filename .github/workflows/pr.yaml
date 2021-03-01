@@ -1,5 +1,5 @@
 on:
-    create 
+    create
 
 name: create-pull-request workflow
 jobs:
@@ -17,13 +17,14 @@ jobs:
       - name: Update entries
         id: updateData
         run: node update.js
-      - name: Verify update
-        run: npm test
       - name: Get changed files
         id: changes
         run: |
-            echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+            export CHANGES="$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+            echo "::set-output name=all::$CHANGES"
+            echo "::set-output name=len::${#CHANGES}"
       - name: Create Pull Request
+        if: ${{ steps.changes.outputs.len }} > 0
         uses: peter-evans/create-pull-request@v3
         with:
           branch: ${{ secrets.UPDATE_BRANCH }}
@@ -36,6 +37,6 @@ jobs:
               Changed files:
               ```
               ${{ steps.changes.outputs.all }}
-              
+              ```
 
           labels: ${{ secrets.UPDATE_BRANCH }}

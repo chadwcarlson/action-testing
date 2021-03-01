@@ -4,10 +4,25 @@
 
 Inital:
 
-- a better test that doesn't depend on an update occuring
-- handling for when there are no updates
-- re-add `working/branch.yaml` cron
-- setup auto-merging, requires config change and auto approval.
+- *Keep this thread in mind: https://platformsh.slack.com/archives/C77CKJMJ9/p1614622037063900*
+
+- [x] a better test that doesn't depend on an update occuring
+- [ ] Make everything depend on passing tests
+- [ ] Make test multi-env (https://github.com/platformsh/config-reader-nodejs/blob/master/.github/workflows/quality-assurance.yaml)
+- [x] handling for when there are no updates (randomly no updates) - ONLY UPDATE ON ODD DAYS
+- [ ] re-add `working/branch.yaml` cron
+- [ ] setup auto-merging, requires config change and auto approval.
+- [ ] move all these changes to a `data-updates` flow, rather than `auto-updates`
+- [ ] run npm update on this repo using this model
+- [ ] Use `data.yaml` as a data source for a Gatsby site. 
+- [ ] Subscribe to upstream Gatsby updates, use those events to trigger a new rebuild of source.
+- [ ] Run tests on the deployed P.sh evironment. Should probably be json instead of yaml so we can curl
+- [ ] How much of this (if any) changes for Private repos?
+- [ ] Merging
+    - data: test + auto
+    - deps: test + auto
+    - triggered core: test + notify
+- [ ] tagging/releases
 
 Then:
 
