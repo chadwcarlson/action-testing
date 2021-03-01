@@ -30,7 +30,7 @@ jobs:
           branch: ${{ secrets.UPDATE_BRANCH }}
           base: master
           delete-branch: true
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GHTOKEN }}
           commit-message: Update data file
           title: 'Auto-update'
           body: |
